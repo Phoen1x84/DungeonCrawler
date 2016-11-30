@@ -1,24 +1,23 @@
 // create hero factory
 var createHero = function(name, health, strength) {
-    this.name = name || nameGenerator();
+    this.name = name || generateName();
     this.health = health || 10;
     this.strength = strength || 10;
 };
 
 // name generator
-var nameGenerator = function() {
+var generateName = function() {
     var names = [
         'Odin',
         'Thor',
         'Sniffles',
         'Kitopants'
     ];
-    var generatedName = Math.floor(Math.random() * names.length);
-    return names[generatedName];
+    return Math.floor(Math.random() * names.length);
 };
 
 // hero attack
-var heroAttack = function(hero) {
+var heroAttackValue = function(hero) {
     if (hero != undefined) {
         var atkMaxDmg = Math.max(this.hero.strength);
         var atkDmg = Math.round(Math.random() * this.hero.strength);
