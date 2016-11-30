@@ -13,7 +13,7 @@ var generateName = function() {
         'Sniffles',
         'Kitopants'
     ];
-    return Math.floor(Math.random() * names.length);
+    return names[Math.floor(Math.random() * names.length)];
 };
 
 // hero attack
@@ -37,9 +37,18 @@ var heroAttackValue = function(hero) {
 // hero inventory
 
 // level up
+var levelUp = function(){
+
+};
 
 // create monster
-
+var createMonster = function(){
+  // TODO: create hero and create monster are nearly the same
+  // abstract these factory functions into character, attributes functions
+  this.name = "monster";
+  this.health = 10;
+  this.strength = 10;
+};
 // monster attack
 
 // remove monster (when monster is defeated to be memory efficient)
@@ -47,6 +56,8 @@ var heroAttackValue = function(hero) {
 // global hero namespace
 var hero;
 var heroCreateEvent = document.getElementById('create-hero');
+
+var monster = new createMonster();
 
 heroCreateEvent.addEventListener('click', function() {
     hero = new createHero();
@@ -56,4 +67,17 @@ heroCreateEvent.addEventListener('click', function() {
     console.log('name: ' + hero.name);
     console.log('health: ' + hero.health);
     console.log('strength: ' + hero.strength);
+});
+
+var attackEvent = document.getElementById('hero-attack');
+
+attackEvent.addEventListener('click', function(){
+
+    // testing hero nad monster stuff works
+    var heroAttackTest = heroAttackValue(hero);
+    var monsterAttackTest = heroAttackValue(monster);
+
+      console.log('hero attack ' + heroAttackTest);
+      console.log('monster attack ' + monsterAttackTest);
+
 });
