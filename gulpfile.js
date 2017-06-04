@@ -1,17 +1,26 @@
-let gulp = require('gulp');
-let browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
 
-gulp.task('scripts', function(){
-  return gulp.src('./scripts/*.js')
-  .pipe(gulp.dest('./scripts/'))
+
+gulp.task('scripts', function() {
+  return gulp.src([
+    './scripts/constructors/*.js',
+    './scripts/generators/*.js',
+    './scripts/app.js'
+    ])
+    .pipe(concat({
+      path: 'app.build.js'
+    }))
+    .pipe(gulp.dest('./dist/scripts/'))
 });
 
-gulp.task('browserReload', ['scripts'], function(done){
+gulp.task('browserReload', ['scripts'], function(done) {
   browserSync.reload();
   done();
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', function() {
   browserSync.init({
     server: {
       baseDir: './'
@@ -23,3 +32,4 @@ gulp.task('watch', function(){
 
 
 gulp.task('default', ['watch']);
+gulp.task('build', ['scripts']);
