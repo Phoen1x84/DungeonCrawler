@@ -1,4 +1,4 @@
-// create hero factory
+// create hero constructor
 var createCharacter = function(name, health, strength) {
     this.name = name || generateName();
     this.health = health || 10;
@@ -55,8 +55,11 @@ var checkHealth = function(character) {
 // hero inventory
 
 // level up
-var levelUp = function() {
-
+var levelUp = function(character) {
+    if (character) {
+        debugger;
+        return character.strength += 10;
+    }
 };
 
 
