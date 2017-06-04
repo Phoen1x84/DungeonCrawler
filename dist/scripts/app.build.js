@@ -1,3 +1,21 @@
+// create hero constructor
+var createCharacter = function(name, health, strength) {
+    this.name = name || generateName();
+    this.health = health || 10;
+    this.strength = strength || 10;
+};
+
+// name generator
+var generateName = function() {
+    var names = [
+        'Odin',
+        'Thor',
+        'Sniffles',
+        'Kitopants'
+    ];
+    return names[Math.floor(Math.random() * names.length)];
+};
+
 // hero attack
 var attackValue = function(character) {
     if (character != undefined) {
