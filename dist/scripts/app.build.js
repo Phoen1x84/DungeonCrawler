@@ -1,19 +1,38 @@
+// create character es6 example
+// class CreateCharacter {
+//   constructor(name, health, strength) {
+//     this.name = name || generateName();
+//     this.health = health || 10;
+//     this.strength = strength || 10;
+//   };
+//
+//   generateName() {
+//     var names = [
+//         'Odin',
+//         'Thor',
+//         'Sniffles',
+//         'Kitopants'
+//     ];
+//     return names[Math.floor(Math.random() * names.length)];
+//   };
+// };
+
 // create hero constructor
-var createCharacter = function(name, health, strength) {
+var CreateCharacter = function(name, health, strength) {
     this.name = name || generateName();
     this.health = health || 10;
     this.strength = strength || 10;
-};
 
-// name generator
-var generateName = function() {
-    var names = [
-        'Odin',
-        'Thor',
-        'Sniffles',
-        'Kitopants'
-    ];
-    return names[Math.floor(Math.random() * names.length)];
+    // name generator
+    function generateName() {
+      var names = [
+          'Odin',
+          'Thor',
+          'Sniffles',
+          'Kitopants'
+      ];
+      return names[Math.floor(Math.random() * names.length)];
+    };
 };
 
 // hero attack
@@ -22,7 +41,7 @@ var attackValue = function(character) {
         var atkMaxDmg = Math.max(character.strength);
         var atkDmg = Math.round(Math.random() * character.strength);
 
-        if (atkDmg == atkMaxDmg) {
+        if (atkDmg === atkMaxDmg) {
             // critical attack does extra damage
             return atkDmg;
         } else {
@@ -68,11 +87,11 @@ var levelUp = function(character) {
 var hero;
 var heroCreateEvent = document.getElementById('create-hero');
 
-var monster = new createCharacter('monster');
+var monster = new CreateCharacter('monster');
 
 heroCreateEvent.addEventListener('click', function() {
     if (hero == null || hero == undefined) {
-        hero = new createCharacter();
+        hero = new CreateCharacter();
         // console.log('Your hero name is ' + hero.name,
         //               'your attack damage is ' + hero.strength,
         //                 'your health is ' + hero.health);
