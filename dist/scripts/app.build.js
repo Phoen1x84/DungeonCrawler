@@ -37,6 +37,26 @@ var CreateCharacter = function(name, health, maxHealth, strength) {
   };
 };
 
+// create hero constructor
+var CreateCharacter = function(name, health, maxHealth, strength) {
+  this.name = name || generateName();
+  this.health = health || 10;
+  this.maxHealth = Math.max(this.health);
+  this.strength = strength || 10;
+  this.level = 1;
+
+  // name generator
+  function generateName() {
+    var names = [
+      'Odin',
+      'Thor',
+      'Sniffles',
+      'Kitopants'
+    ];
+    return names[Math.floor(Math.random() * names.length)];
+  };
+};
+
 // hero attack
 var attack = function(character) {
   if (character != undefined) {
@@ -57,6 +77,7 @@ var attack = function(character) {
 
 // calculate hits
 var calcHits = function(character, attackValue) {
+
   if (character && attackValue) {
     return character.health = character.health - attackValue;
   } else {
@@ -124,7 +145,7 @@ attackAction.addEventListener('click', function() {
     calcHits(monster, heroAttack);
     checkHealth(monster);
   }
-  if (hero.health > 0 && monster.health > 0) {
+  else if (hero.health > 0 && monster.health > 0) {
     // if the monster is not dead the monster attacks the hero
     calcHits(hero, monsterAttack);
     checkHealth(hero);

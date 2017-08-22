@@ -38,6 +38,7 @@ var attack = function(character) {
 
 // calculate hits
 var calcHits = function(character, attackValue) {
+
   if (character && attackValue) {
     return character.health = character.health - attackValue;
   } else {
@@ -105,7 +106,7 @@ attackAction.addEventListener('click', function() {
     calcHits(monster, heroAttack);
     checkHealth(monster);
   }
-  if (hero.health > 0 && monster.health > 0) {
+  else if (hero.health > 0 && monster.health > 0) {
     // if the monster is not dead the monster attacks the hero
     calcHits(hero, monsterAttack);
     checkHealth(hero);

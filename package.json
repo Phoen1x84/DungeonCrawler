@@ -4,13 +4,14 @@
   "description": "dungeon crawl mini game",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "@Pho3n1x84 - matthew neil",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "mocha": "^3.4.2"
   }
 }
