@@ -2,16 +2,20 @@
   "name": "dungeon_crawler",
   "version": "1.0.0",
   "description": "dungeon crawl mini game",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --config ./app_config/webpack.config.js",
+    "build": "webpack --config ./app_config/webpack.config.js",
+    "build:prod": "webpack -p --config ./app_config/webpack.config.js",
     "test": "mocha"
   },
   "author": "@Pho3n1x84 - matthew neil",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.18.2",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "mocha": "^3.4.2"
+    "clean-webpack-plugin": "^0.1.17",
+    "html-webpack-plugin": "^2.30.1",
+    "mocha": "^3.4.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.2"
   }
 }

@@ -1,35 +1,37 @@
 // create hero constructor
-var CreateCharacter = function(name, health, maxHealth, strength) {
-  this.name = name || generateName();
-  this.health = health || 10;
-  this.maxHealth = Math.max(this.health);
-  this.strength = strength || 10;
-  this.level = 1;
+// create character es6 example
+const CreateCharacter = function(name) {
+    this.name = name || generateName();
+    this.health = 10;
+    this.maxHealth = Math.max(this.health);
+    this.strength = 10;
+    this.level = 1;
+    this.initiative = 1;
+};
 
-  // name generator
-  function generateName() {
-    var names = [
-      'Odin',
-      'Thor',
-      'Sniffles',
-      'Kitopants'
-    ];
-    return names[Math.floor(Math.random() * names.length)];
-  };
+// name generator
+const generateName = () => { 
+  let names = [
+    'Odin',
+    'Thor',
+    'Sniffles',
+    'Kitopants' 
+  ];
+  return names[Math.floor(Math.random() * names.length)];
 };
 
 // hero attack
-var attack = function(character) {
+const attack = character => {
   if (character != undefined) {
     var atkMaxDmg = Math.max(character.strength);
     var atkDmg = Math.round(Math.random() * character.strength);
 
     if (atkDmg === atkMaxDmg) {
       // critical attack does extra damage
-      return atkDmg;
+      return atkDmg + 5;
     } else {
       // basic attack damage lowest number to highest number - 1
-      return atkDmg + 5;
+      return atkDmg;
     }
   } else {
     throw 'hero is undefined or has not been created.';
@@ -37,7 +39,7 @@ var attack = function(character) {
 };
 
 // calculate hits
-var calcHits = function(character, attackValue) {
+const calcHits = function (character, attackValue) {
 
   if (character && attackValue) {
     return character.health = character.health - attackValue;
@@ -47,16 +49,16 @@ var calcHits = function(character, attackValue) {
 };
 
 // character health check
-var checkHealth = function(character) {
+const checkHealth = character => {
   if (character.health <= 0) {
-    alert(character.name + ' is dead, try again');
+    console.log(`${character.name} has died!`);
   }
 };
 
 // hero inventory
 
 // level up
-var levelUp = function(stats) {
+const levelUp = stats => {
   if (stats) {
     return (
       /*
@@ -71,6 +73,11 @@ var levelUp = function(stats) {
 };
 
 
+// attack order using initiative
+const attackOrder = character => {
+  return character.initiative;
+};
+
 
 // global hero namespace
 var hero;
@@ -78,23 +85,21 @@ var heroCreateEvent = document.getElementById('create-hero');
 
 var monster = new CreateCharacter('monster');
 
-heroCreateEvent.addEventListener('click', function() {
+heroCreateEvent.addEventListener('click', function () {
   if (hero == null || hero == undefined) {
     hero = new CreateCharacter();
-    // console.log('Your hero name is ' + hero.name,
-    //               'your attack damage is ' + hero.strength,
-    //                 'your health is ' + hero.health);
-    console.log('name: ' + hero.name);
-    console.log('health: ' + hero.health);
-    console.log('strength: ' + hero.strength);
-    console.log('level: ' + hero.level);
+    console.log(`name: ${hero.name}
+    health: ${hero.health}
+    strength: ${hero.strength}
+    initiative: ${hero.initiative}
+    level: ${hero.level}`);
   }
 });
 
 // attack events
 var attackAction = document.getElementById('hero-attack');
 
-attackAction.addEventListener('click', function() {
+attackAction.addEventListener('click', function () {
 
   // hero will always attack first calculate the monster health first
   // then carry out the monster attack
