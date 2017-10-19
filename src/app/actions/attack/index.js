@@ -6,13 +6,15 @@ var calcHits = (character, attackValue) => {
     for (var i in character) {
         characterObj = true;
     }
-    
+
     if (characterObj && attackValue) {
         return character.health = character.health - attackValue;
     } else {
         throw 'character argument is ' + character + ' and attack value is ' + attackValue;
     }
 };
+
+
 
 // character health check
 var checkHealth = character => {
