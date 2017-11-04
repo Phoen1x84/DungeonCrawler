@@ -15,7 +15,6 @@ var calcHits = (character, attackValue) => {
 };
 
 
-
 // character health check
 var checkHealth = character => {
     if (character.health <= 0) {
