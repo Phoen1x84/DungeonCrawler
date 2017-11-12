@@ -7,7 +7,7 @@ class CreateCharacter {
       this.maxHealth = Math.max(this.health);
       this.strength = 10;
       this.level = 1;
-      this.initiative = 1;
+      this.initiative = 1;      
     };
   
     generateName() {    
