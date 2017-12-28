@@ -1,7 +1,6 @@
-var CreateCharacter = require('./constructors/create-character');
+const CreateCharacter = require('./constructors/create-character');
 
 // actions
-var heroCreateEvent = require('./actions/create-hero');
-var attackAction = require('./actions/attack');
-var levelUp = require('./actions/levelup');
-debugger;
+const heroCreateEvent = require('./actions/create-hero');
+const attackAction = require('./actions/attack');
+const levelUp = require('./actions/levelup');

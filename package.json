@@ -7,18 +7,20 @@
     "start": "webpack-dev-server --config ./app_config/webpack.config.js",
     "build": "webpack --config ./app_config/webpack.config.js",
     "build:prod": "webpack -p --config ./app_config/webpack.config.js",
-    "test": "mocha"
+    "test": "jest",
+    "test:live": "jest --watch",
+    "complex": "cr -n --config ./complexrc ./src"
   },
   "author": "@Pho3n1x84 - matthew neil",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
     "clean-webpack-plugin": "^0.1.17",
     "html-webpack-plugin": "^2.30.1",
-    "mocha": "^3.4.2",
-    "sinon": "^4.1.1",
+    "jest": "^22.0.4",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "complexity-report": "^2.0.0-alpha"
+  }
 }

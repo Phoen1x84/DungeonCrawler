@@ -1,4 +1,2 @@
-var player = {
-
-};
+const player = {};
 module.exports = player;
