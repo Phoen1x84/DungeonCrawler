@@ -16,14 +16,15 @@ module.exports = {
             template: './src/index.html'
         }),
         new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.SourceMapDevToolPlugin()
     ],
     
     devtool: 'cheap-module-eval-source-map',
 
     devServer: {
         contentBase: path.join(__dirname, '../dist/'),
-        hot: true,
+        hot: false,
         inline: true,
         open: true,
         openPage: ''

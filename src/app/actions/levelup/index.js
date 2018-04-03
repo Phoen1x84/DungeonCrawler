@@ -1,5 +1,12 @@
 // level up
-var levelUp = stats => {
+const levelUp = (stats) => {
+  debugger;
+
+  const upgradeStats = stats.filter(function(stat) {
+
+
+  }); 
+
     if (stats) {
       return (
         /*
