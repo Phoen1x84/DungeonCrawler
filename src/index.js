@@ -1,20 +1,4 @@
-// create hero constructor
-var createCharacter = function(name, health, strength) {
-    this.name = name || generateName();
-    this.health = health || 10;
-    this.strength = strength || 10;
-};
-
-// name generator
-var generateName = function() {
-    var names = [
-        'Odin',
-        'Thor',
-        'Sniffles',
-        'Kitopants'
-    ];
-    return names[Math.floor(Math.random() * names.length)];
-};
+import CreateCharacter from './app/actions/create-character.js';
 
 // hero attack
 var attackValue = function(character) {
@@ -68,11 +52,11 @@ var levelUp = function(character) {
 var hero;
 var heroCreateEvent = document.getElementById('create-hero');
 
-var monster = new createCharacter('monster');
+var monster = new CreateCharacter('monster');
 
 heroCreateEvent.addEventListener('click', function() {
     if (hero == null || hero == undefined) {
-        hero = new createCharacter();
+        hero = new CreateCharacter();
         // console.log('Your hero name is ' + hero.name,
         //               'your attack damage is ' + hero.strength,
         //                 'your health is ' + hero.health);
